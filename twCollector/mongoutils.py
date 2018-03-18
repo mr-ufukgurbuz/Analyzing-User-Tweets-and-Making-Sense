@@ -1,14 +1,14 @@
 
 import pymongo
 
-DBPATH = "mongodb://localhost:27017/"
-db_name = 'Twitter'
+DBPATH = "mongodb://baba44:murat_44@ds151908.mlab.com:51908/data-science-database" # "mongodb://localhost:27017/"
+db_name = 'data-science-database'
 collection_name= 'Tweets'
 
 class MongodbClient:
     def __init__(self):
         self.mongo_client = pymongo.MongoClient(DBPATH)
-        self.db = self.mongo_client[collection_name]
+        self.db = self.mongo_client[db_name]
         self.collection = self.db[collection_name]
 
 
