@@ -3,5 +3,6 @@ Flask-RESTful
 uwsgi
 psycopg2
 tweepy
-nltk
 pymongo
+numpy
+nltk
