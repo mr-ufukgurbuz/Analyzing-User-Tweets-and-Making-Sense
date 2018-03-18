@@ -3,7 +3,7 @@ Flask-RESTful
 uwsgi
 psycopg2
 tweepy
-pymongo
+pymongo[gssapi,srv,tls]
 corpora
 numpy
 nltk
