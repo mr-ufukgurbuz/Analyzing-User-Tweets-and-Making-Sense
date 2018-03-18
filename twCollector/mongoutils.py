@@ -1,8 +1,9 @@
 
 import pymongo
 
-DBPATH = "mongodb://baba44:murat_44@ds151908.mlab.com:51908/data-science-database" # "mongodb://localhost:27017/"
-db_name = 'data-science-database'
+# MongoLab Remote Database URI
+DBPATH = "mongodb://baba44:murat_44@data-science-database-shard-00-00-1ef45.mongodb.net:27017,data-science-database-shard-00-01-1ef45.mongodb.net:27017,data-science-database-shard-00-02-1ef45.mongodb.net:27017/test?ssl=true&replicaSet=data-science-database-shard-0&authSource=admin" # "mongodb://baba44:murat_44@ds151908.mlab.com:51908/data-science-database" # "mongodb://localhost:27017/"
+db_name = 'Twitter'
 collection_name= 'Tweets'
 
 class MongodbClient:
