@@ -4,6 +4,5 @@ uwsgi
 psycopg2
 tweepy
 pymongo
-pymongo[tls]
 numpy
 nltk
