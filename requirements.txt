@@ -4,5 +4,6 @@ uwsgi
 psycopg2
 tweepy
 pymongo
+corpora
 numpy
 nltk
