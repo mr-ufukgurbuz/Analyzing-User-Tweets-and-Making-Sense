@@ -1,6 +1,13 @@
 $(document).ready(function(){
 
-    var dropdown_menu = "<td>" + "<select id='dropdown' class='selectpicker'>" + "<option>GOOD</option>" + "<option>Karişik</option>" + "<option>BAD</option>" + "<option>Trash</option>" + "</select>";
+    var dropdown_menu = "<td>" +
+                            "<select id='dropdown' class='selectpicker'>" +
+                                "<option>GOOD</option>" +
+                                "<option>Karişik</option>" +
+                                "<option>BAD</option>" +
+                                "<option>Trash</option>" +
+                            "</select>" +
+                        "</td>";
 
      $.ajax({
             url: '/list',
@@ -14,7 +21,7 @@ $(document).ready(function(){
 
                 $.each(response["wordsoftweets"], function (index, value) {
 
-                var tabel_row = "<tr>" + "<td>" + index + "</td>" + "<td>" + value + "</td>" + dropdown_menu;
+                var tabel_row = "<tr>" + "<td>" + index + "</td>" + "<td>" + value + "</td>" + dropdown_menu + "</tr>";
                 $(tabel_row).appendTo("#tweets-table tbody");
 
              });
@@ -58,7 +65,7 @@ $(document).ready(function(){
                 if (response["status"]==0)
                     location.reload();
                 else
-                    alert("Patlati gitti")
+                    alert("The write to the database failed !!!")
 
 
             },
