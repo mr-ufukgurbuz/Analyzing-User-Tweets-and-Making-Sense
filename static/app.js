@@ -79,6 +79,33 @@ $(document).ready(function(){
 	});
 
 
+     $( "#previous-btn" ).click(function() {
+
+        $("#tweets-table tbody").empty();   // Delete all table rows of old tweet
+
+        $.ajax({
+            url: '/previous',
+            type: 'GET',
+            success: function(response) {
+
+                response=JSON.parse(response)
+
+                $("p#pure-tweet").text(response["tweet"]);
+                $("p#u-name").text(response["username"]);
+
+                $.each(response["wordsoftweets"], function (index, value) {
+
+                var tabel_row = "<tr>" + "<td>" + index + "</td>" + "<td>" + value + "</td>" + dropdown_menu + "</tr>";
+                $(tabel_row).appendTo("#tweets-table tbody");
+
+             });
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+
+	});
 
 
 });
