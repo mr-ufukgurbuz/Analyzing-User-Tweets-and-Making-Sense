@@ -18,6 +18,8 @@ class MongodbClient:
         self.db = self.mongo_client[db_name]
         self.collection = self.db[collection_name]
 
+        self.currentTweetID = None
+
 
 class MongodbWriter(MongodbClient):
     def __init__(self, tweets_generator, *args, **kwargs):
@@ -37,6 +39,7 @@ class MongodbWriter(MongodbClient):
             selected_tweets = filter(lambda x: x not in ["RT","https","co","t","ve","in","e"], tweet) #todo Caneeer şunu regex yapda aksin buralar
 
             tw = {
+                "tweetID" : username + "-" + str(count),
                 "username": username,
                 'done': 0,
                 "tweet":pure,
@@ -55,7 +58,24 @@ class MongodbReader(MongodbClient):
             yield doc
 
     def getOneItem(self,filter={"done":0}):
+        self.currentTweetID = self.collection.find_one(filter)["tweetID"]
+        #print(self.getPreviousItem())
         return  self.collection.find_one(filter)
+
+    def getPreviousItem(self):
+        previousTweetID = self.findPreviousTweetID(self.currentTweetID)
+        self.currentTweetID = previousTweetID       # swap "currentTweetID" by "previousTweetID"
+        filter = {"tweetID": previousTweetID}
+        return self.collection.find_one(filter=filter)
+
+    def findPreviousTweetID(self, currentTweetID):  # @ufukgurbuz44-8
+        tweetID = currentTweetID.split("-")
+        _id = int(tweetID[1])
+        if(_id != 0):
+            _id = _id - 1
+
+        previousTweetID = tweetID[0] + "-" + str(_id)
+        return previousTweetID
 
     def updateOneItem(self,id,_labeed):
 
