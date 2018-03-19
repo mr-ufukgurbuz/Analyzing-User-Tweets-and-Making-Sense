@@ -24,6 +24,11 @@ def list():
     item=client.getOneItem()
     return  json.dumps(item,default=json_util.default);
 
+@app.route('/previous', methods=['GET'])
+def previousTweet():
+    global item
+    item=client.getPreviousItem()
+    return  json.dumps(item,default=json_util.default);
 
 @app.route('/save', methods=['POST'])
 def save():
