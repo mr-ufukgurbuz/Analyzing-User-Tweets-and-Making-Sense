@@ -17,7 +17,7 @@ $(document).ready(function(){
                 response=JSON.parse(response)
 
 				$("p#pure-tweet").text(response["tweet"]);
-                $("p#u-name").text(response["username"]);
+                $("p#tweet-id").text(response["tweetID"]);
 
                 $.each(response["wordsoftweets"], function (index, value) {
 
