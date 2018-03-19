@@ -36,7 +36,7 @@ def save():
     data = request.json
     for i in range(0,len(data)):
 
-        item["wordsoftweets"][data[i]["ID"]]=data[i]["Label"]
+        item["wordsoftweets"][data[i]["Words"]]=data[i]["Label"]
 
     result=client.updateOneItem(item["_id"],item["wordsoftweets"])
     if result['updatedExisting']==True:
