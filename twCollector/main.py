@@ -4,12 +4,15 @@
 from twCollector.tweetcollector import TwitterAPI
 from twCollector.tweettokenizer import TwitterTokenizer
 from twCollector.mongoutils import *
-import time
+import time, os
 
-consumer_key = 'FnrpmIW63z6fFLs4YomM6IdCD'
-consumer_secret = 'LQR2ChhZuJeRiwkyqzqYRLxhgnKYonYq3BChLYQOwyoekSAOJj'
-access_token = '356930017-jupA3DwrcIfDdDev0Bfj38KO6oM4xmI1LN1pcpEW'
-access_token_secret = 'Z73L0vrIvW7s49yKmdNATMvPg6IkpVgp64BbmdQ6mobPh'
+
+# Twitter Access Keys "@ufukgurbuz44"
+consumer_key = os.environ['CONSUMER_KEY']
+consumer_secret = os.environ['CONSUMER_SECRET_KEY']
+access_token = os.environ['ACCESS_TOKEN']
+access_token_secret = os.environ['ACCESS_TOKEN_SECRET']
+
 
 def collectTweet(userlist):
 
