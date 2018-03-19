@@ -36,11 +36,16 @@ def save():
 
         item["wordsoftweets"][data[i]["ID"]]=data[i]["Label"]
 
-    result=client.updateOneItem(item["_id"],item["wordsoftweets"])
-    if result['updatedExisting']==True:
-        return json.dumps({"status":0})
+    if item is None:
+        print("sorun yok")
     else:
-        return json.dumps({"status": 1})
+        print("sorun var")
+        result=client.updateOneItem(item["_id"],item["wordsoftweets"])
+
+        if result['updatedExisting']==True:
+            return json.dumps({"status":0})
+        else:
+            return json.dumps({"status": 1})
 
 
 
