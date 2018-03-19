@@ -1,24 +1,21 @@
 #!flask/bin/python
-from flask import Flask, jsonify,abort ,request, render_template
+
+from flask import Flask, jsonify, request, render_template
 import  sys
 import json
-from bson import BSON
 from bson import json_util
-
 from  twCollector.mongoutils import MongodbReader
 
-app = Flask(__name__,template_folder='template')
+
+app = Flask(__name__, template_folder='template')
 PATH=sys.path[0]
 item=None;
 client = MongodbReader();
 
 
-
-
 @app.route('/', methods=['GET'])
 def start():
     return render_template('index.html')
-
 
 
 @app.route('/list', methods=['GET'])
@@ -36,19 +33,12 @@ def save():
 
         item["wordsoftweets"][data[i]["ID"]]=data[i]["Label"]
 
-    if item is None:
-        print("sorun yok")
+    result=client.updateOneItem(item["_id"],item["wordsoftweets"])
+    if result['updatedExisting']==True:
+        return json.dumps({"status":0})
     else:
-        print("sorun var")
-        result=client.updateOneItem(item["_id"],item["wordsoftweets"])
-
-        if result['updatedExisting']==True:
-            return json.dumps({"status":0})
-        else:
-            return json.dumps({"status": 1})
-
+        return json.dumps({"status": 1})
 
 
 if __name__ == '__main__':
-    app.run(port=5002)
-
+    app.run(port=5000)
