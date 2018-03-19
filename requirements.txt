@@ -2,8 +2,8 @@ Flask
 Flask-RESTful
 uwsgi
 psycopg2
+pymongo
 tweepy
-pymongo[gssapi,srv,tls]
 corpora
 numpy
 nltk
