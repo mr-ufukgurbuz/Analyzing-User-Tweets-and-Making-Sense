@@ -10,7 +10,9 @@ collection_name= 'Tweets'
 
 class MongodbClient:
     def __init__(self):
-        self.mongo_client = pymongo.MongoClient(DBPATH)
+        self.mongo_client = pymongo.MongoClient(DBPATH, connectTimeoutMS=30000,
+                                                        socketTimeoutMS=None,
+                                                        socketKeepAlive=True)
         self.db = self.mongo_client[db_name]
         self.collection = self.db[collection_name]
 
