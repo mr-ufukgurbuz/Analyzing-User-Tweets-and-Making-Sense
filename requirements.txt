@@ -2,7 +2,7 @@ Flask
 Flask-RESTful
 uwsgi
 psycopg2
-pymongo==3.6.1
+pymongo
 tweepy
 corpora
 numpy
