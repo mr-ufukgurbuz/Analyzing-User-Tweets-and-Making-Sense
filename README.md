@@ -6,7 +6,7 @@ Merhaba arkadaşlar,
 
 Öncelikle sağlamış olduğu arayüz programından dolayı <b>'Murat'</b> kardeşime ve bu arayüzün kullanımı için RESTful web servis yazan <b>'Fatih'</b> kardeşime teşekkür ederim.
 
-Yazılmış olan bu web servis üzerinden etiketleme yapılırken, tüm grup üyelerinin kendi bilgisayarına <i>'MongoDB database'</i> ve python kodunun ilgili <i>'library'</i> lerini kurması gerekmektedir. Ayrıca, her grup üyesinin yaptığı etiketlemeler kendi bilgisayarındaki veritabanına kaydedilecek ve daha sonra birleştirilmesi gerekecektir.  Özellikle <b>'NER'</b> projesi yapan arkadaşlar için, yüzlerce kullanıcının binlerce tweet'i için <i>'tweet tekrarı'</i> olmamasına dikkat etmek v.s sıkıntı olacaktı bizim için. Ben de bu arayüzü bir tık daha geliştirerek kullanım kolaylığı sağlaması için 'web ortamına' taşıdım.
+Yazılmış olan bu web servis üzerinden etiketleme yapılırken, tüm grup üyelerinin kendi bilgisayarına <i>'MongoDB database'</i> ve python kodunun ilgili <i>'library'</i> lerini kurması gerekmektedir. Ayrıca, her grup üyesinin yaptığı etiketlemeler kendi bilgisayarındaki veritabanına kaydedilecek ve daha sonra birleştirilmesi gerekecektir.  Özellikle <b>'NER'</b> projesi yapan arkadaşlar için, yüzlerce kullanıcının binlerce tweet'i için <i>'tweet tekrarı'</i> olmamasına dikkat etmek v.s sıkıntı olacaktı bizim için. Ben de bu arayüzü bir tık daha geliştirerek kullanım kolaylığı sağlaması için 'web ortamına' taşıdım. Ve hatalı tweet etiketlemelerinde, önceki 'tweet'lerin düzeltilmesi için arayüze bir 'previous' butonu koydum. Böylelikle daha önceki etiketlemeleri tek bir başlık altında görebileceğiz.
 
 ## Remote Database Part
 
