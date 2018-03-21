@@ -2,17 +2,17 @@ $(document).ready(function(){
 
     var dropdown_menu = "<td>" +
                             "<select id='dropdown' class='selectpicker'>" +
-                                "<option>Address</option>" +
-                                "<option>Age</option>" +
-                                "<option>Company</option>" +
-                                "<option>Contact</option>" +
-                                "<option>Date</option>" +
-                                "<option>Event/Activity</option>" +
-                                "<option>ID</option>" +
-                                "<option>Job</option>" +
-                                "<option>Name</option>" +
-                                "<option>Place</option>" +
                                 "<option>Trash</option>" +
+                                "<option>Event/Activity</option>" +
+                                "<option>Name</option>" +
+                                "<option>Address</option>" +
+                                "<option>Date</option>" +
+                                "<option>Company</option>" +
+                                "<option>Age</option>" +
+                                "<option>Job</option>" +
+                                "<option>Place</option>" +
+                                "<option>Contact</option>" +
+                                "<option>ID</option>" +
                             "</select>" +
                         "</td>";
 
