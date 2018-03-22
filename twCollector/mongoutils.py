@@ -3,6 +3,7 @@
 
 import pymongo, os
 
+
 # "mLab" Remote Database URI
 DBPATH = os.environ['MONGODB_URI']
 db_name = 'data-science-database'
