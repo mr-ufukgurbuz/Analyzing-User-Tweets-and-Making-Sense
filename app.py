@@ -22,6 +22,7 @@ def start():
 def list():
     global item
     item=client.getOneItem()
+    client.lockCurrentTweet()  # locks current tweet for multiple pull requests
     return  json.dumps(item,default=json_util.default);
 
 @app.route('/previous', methods=['GET'])
