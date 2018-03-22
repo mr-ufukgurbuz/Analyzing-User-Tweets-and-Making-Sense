@@ -59,7 +59,6 @@ class MongodbReader(MongodbClient):
 
     def getOneItem(self,filter={"done":0}):
         self.currentTweetID = self.collection.find_one(filter)["tweetID"]
-        self.lockCurrentTweet()             # locks current tweet for multiple pull requests
         #print(self.getPreviousItem())
         return  self.collection.find_one(filter)
 
