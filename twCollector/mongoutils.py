@@ -50,10 +50,12 @@ class MongodbWriter(MongodbClient):
             count+=1
         return count;
 
+
 class MongodbReader(MongodbClient):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.LOCK_STATUS = True
+        self.PREVIOUS_STATUS = False
 
     def __iter__(self):
         for doc in self.collection.find():
@@ -94,7 +96,7 @@ class MongodbReader(MongodbClient):
 
     def createTweetSessionTimer(self):
         _thread.start_new_thread(self.startTweetSessionTimer, ("helloNewLockThread",))  # Starts a timer to lock for '5 minute'
-        #print("currentTweetID: ", self.currentTweetID)
+        print("currentTweetID: ", self.currentTweetID)
 
     def startTweetSessionTimer(self, threadName):
         self.lockCurrentTweet()             # Locks current tweet for multiple pull requests
@@ -104,15 +106,15 @@ class MongodbReader(MongodbClient):
             endTime = time.time()
             elapsedTime = int(endTime - startTime) + 1
 
-            #print(self.currentTweetID, " -> timer :", elapsedTime)
+            print(self.currentTweetID, " -> timer :", elapsedTime)
 
-            if (elapsedTime % 300) == 0:     # Sets timer as '5 minute'
+            if ((elapsedTime % 60) == 0) or self.PREVIOUS_STATUS:     # Sets timer as '5 minute'
                 self.unlockCurrentTweet()   # Unlocks current tweet if there is no 'save' operation after '1 minute'
                 break
             time.sleep(0.5)
 
     def lockCurrentTweet(self):
-        #print("lockTweetID: ", self.currentTweetID)
+        print("lockTweetID: ", self.currentTweetID)
         result = self.collection.update(
             {"tweetID": self.currentTweetID},
             {
@@ -124,7 +126,7 @@ class MongodbReader(MongodbClient):
         return result
 
     def unlockCurrentTweet(self):
-        #print("unlockTweetID: ", self.currentTweetID)
+        print("unlockTweetID: ", self.currentTweetID)
         result = self.collection.update(
             {"tweetID": self.currentTweetID},
             {
@@ -133,4 +135,5 @@ class MongodbReader(MongodbClient):
                 }
             }
         )
+        self.LOCK_STATUS = False
         return result
