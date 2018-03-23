@@ -35,3 +35,4 @@ Son olarak yine aynı <b>'Deploy'</b> sekmesindeki, <b>'Manual deploy'</b> böl�
 
 ![web_application_screenshot](https://user-images.githubusercontent.com/16938791/37685742-a081e6a4-2ca5-11e8-80d6-f4394e2858ff.PNG)
 
+### Note: Bir 'tweet' çekme işlemi o 'tweet' için bir 'session' yaratır ve o 'tweet'e -> "5 dk"lığına 'lock' koyar. Bu süre içinde etiketleme işimiz bitince 'save' dediğimizde 'lock' kalkar ve 'database'e kaydeder. Eğer, bu süre içinde etiketleme yapılmamış ve sayfa kapatılmış ise "5 dk"lık süre sonunda o 'tweet'in statüsü 'unlock' olarak güncellenir. Böylece, daha sonraki 'tweet' çekme işleminde o 'tweet' tekrardan çekilebilir.
