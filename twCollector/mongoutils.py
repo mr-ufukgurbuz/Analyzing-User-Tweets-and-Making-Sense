@@ -108,7 +108,7 @@ class MongodbReader(MongodbClient):
 
             print(self.currentTweetID, " -> timer :", elapsedTime)
 
-            if ((elapsedTime % 60) == 0) or self.PREVIOUS_STATUS:     # Sets timer as '5 minute'
+            if ((elapsedTime % 300) == 0) or self.PREVIOUS_STATUS:     # Sets timer as '5 minute'
                 self.unlockCurrentTweet()   # Unlocks current tweet if there is no 'save' operation after '1 minute'
                 break
             time.sleep(0.5)
