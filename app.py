@@ -1,8 +1,7 @@
 #!flask/bin/python
 
 from flask import Flask, jsonify, request, render_template
-import  sys
-import json
+import  sys, json
 from bson import json_util
 from  twCollector.mongoutils import MongodbReader
 
@@ -10,7 +9,7 @@ from  twCollector.mongoutils import MongodbReader
 app = Flask(__name__, template_folder='template')
 PATH=sys.path[0]
 item=None;
-client = MongodbReader();
+client = None
 
 
 @app.route('/', methods=['GET'])
@@ -20,20 +19,24 @@ def start():
 
 @app.route('/list', methods=['GET'])
 def list():
-    global item
+    global item,client
+    client=MongodbReader();
     item=client.getOneItem()
-    client.lockCurrentTweet()  # locks current tweet for multiple pull requests
+
+    client.createTweetSessionTimer()                # Starts tweet session timer as '5 minute'
+
     return  json.dumps(item,default=json_util.default);
 
 @app.route('/previous', methods=['GET'])
 def previousTweet():
-    global item
+    global item,client
     item=client.getPreviousItem()
     return  json.dumps(item,default=json_util.default);
 
 @app.route('/save', methods=['POST'])
 def save():
-    global item
+    global item,client
+    client.LOCK_STATUS=False                       # Unlocks current tweet if there is 'save' operation before '5 minute'
     data = request.json
     for i in range(0,len(data)):
 
