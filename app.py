@@ -1,7 +1,7 @@
 #!flask/bin/python
 
 from flask import Flask, jsonify, request, render_template
-import  sys, json
+import  sys, json, time
 from bson import json_util
 from  twCollector.mongoutils import MongodbReader
 
@@ -27,11 +27,18 @@ def list():
 
     return  json.dumps(item,default=json_util.default);
 
+
 @app.route('/previous', methods=['GET'])
 def previousTweet():
     global item,client
-    item=client.getPreviousItem()
+    client.PREVIOUS_STATUS = True                   # Unlocks current tweet if there is 'previous' operation
+
+    while(client.LOCK_STATUS):                      # If LOCK_STATUS==True, wait for 'unlock' operation;
+        time.sleep(0.1)
+
+    item=client.getPreviousItem()                   # Then, continue for 'previous' operation
     return  json.dumps(item,default=json_util.default);
+
 
 @app.route('/save', methods=['POST'])
 def save():
