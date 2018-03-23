@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import pymongo, os
+import pymongo, os, _thread, time
 
 
 # "mLab" Remote Database URI
@@ -53,6 +53,7 @@ class MongodbWriter(MongodbClient):
 class MongodbReader(MongodbClient):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.LOCK_STATUS = True
 
     def __iter__(self):
         for doc in self.collection.find():
@@ -91,23 +92,44 @@ class MongodbReader(MongodbClient):
         )
         return result
 
+    def createTweetSessionTimer(self):
+        _thread.start_new_thread(self.startTweetSessionTimer, ("helloNewLockThread",))  # Starts a timer to lock for '5 minute'
+        #print("currentTweetID: ", self.currentTweetID)
+
+    def startTweetSessionTimer(self, threadName):
+        self.lockCurrentTweet()             # Locks current tweet for multiple pull requests
+        startTime = time.time()
+
+        while self.LOCK_STATUS:
+            endTime = time.time()
+            elapsedTime = int(endTime - startTime) + 1
+
+            #print(self.currentTweetID, " -> timer :", elapsedTime)
+
+            if (elapsedTime % 300) == 0:     # Sets timer as '5 minute'
+                self.unlockCurrentTweet()   # Unlocks current tweet if there is no 'save' operation after '1 minute'
+                break
+            time.sleep(0.5)
+
     def lockCurrentTweet(self):
+        #print("lockTweetID: ", self.currentTweetID)
         result = self.collection.update(
             {"tweetID": self.currentTweetID},
             {
                 '$set': {
-                    'done':2
+                    'done':2        # Lock tweet status
                 }
             }
         )
         return result
 
     def unlockCurrentTweet(self):
+        #print("unlockTweetID: ", self.currentTweetID)
         result = self.collection.update(
             {"tweetID": self.currentTweetID},
             {
                 '$set': {
-                    'done':0
+                    'done':0        # Unlock tweet status
                 }
             }
         )
