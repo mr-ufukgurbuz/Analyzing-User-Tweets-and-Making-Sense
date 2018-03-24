@@ -19,8 +19,6 @@ class MongodbClient:
         self.db = self.mongo_client[db_name]
         self.collection = self.db[collection_name]
 
-        self.currentTweetID = None
-
 
 class MongodbWriter(MongodbClient):
     def __init__(self, tweets_generator, *args, **kwargs):
@@ -54,6 +52,7 @@ class MongodbWriter(MongodbClient):
 class MongodbReader(MongodbClient):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.currentTweetID = None
         self.LOCK_STATUS = True
         self.PREVIOUS_STATUS = False
 
@@ -72,7 +71,7 @@ class MongodbReader(MongodbClient):
         filter = {"tweetID": previousTweetID}
         return self.collection.find_one(filter=filter)
 
-    def findPreviousTweetID(self, currentTweetID):  # @ufukgurbuz44-8
+    def findPreviousTweetID(self, currentTweetID):  # @ufukgurbuz44-8  -> tweetID
         tweetID = currentTweetID.split("-")
         _id = int(tweetID[1])
         if(_id != 0):
@@ -95,8 +94,8 @@ class MongodbReader(MongodbClient):
         return result
 
     def createTweetSessionTimer(self):
-        _thread.start_new_thread(self.startTweetSessionTimer, ("helloNewLockThread",))  # Starts a timer to lock for '5 minute'
-        print("currentTweetID: ", self.currentTweetID)
+        _thread.start_new_thread(self.startTweetSessionTimer, ("helloLockThread",))  # Starts a timer to lock for '5 minute'
+        #print("currentTweetID: ", self.currentTweetID)
 
     def startTweetSessionTimer(self, threadName):
         self.lockCurrentTweet()             # Locks current tweet for multiple pull requests
@@ -106,7 +105,7 @@ class MongodbReader(MongodbClient):
             endTime = time.time()
             elapsedTime = int(endTime - startTime) + 1
 
-            print(self.currentTweetID, " -> timer :", elapsedTime)
+            #print(self.currentTweetID, " -> timer :", elapsedTime)
 
             if ((elapsedTime % 300) == 0) or self.PREVIOUS_STATUS:     # Sets timer as '5 minute'
                 self.unlockCurrentTweet()   # Unlocks current tweet if there is no 'save' operation after '1 minute'
@@ -114,7 +113,7 @@ class MongodbReader(MongodbClient):
             time.sleep(0.5)
 
     def lockCurrentTweet(self):
-        print("lockTweetID: ", self.currentTweetID)
+        #print("lockTweetID: ", self.currentTweetID)
         result = self.collection.update(
             {"tweetID": self.currentTweetID},
             {
@@ -126,7 +125,7 @@ class MongodbReader(MongodbClient):
         return result
 
     def unlockCurrentTweet(self):
-        print("unlockTweetID: ", self.currentTweetID)
+        #print("unlockTweetID: ", self.currentTweetID)
         result = self.collection.update(
             {"tweetID": self.currentTweetID},
             {
