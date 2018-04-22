@@ -5,7 +5,7 @@ from nltk.tokenize import RegexpTokenizer
 from pymongo import MongoClient
 import csv
 
-DBPATH = "mongodb://userName:password@bla_bla_bla/data-science-database"
+DBPATH = "mongodb://userName:password@bla_bla_bla_bla/data-science-database"
 db_name = 'data-science-database'
 collection_name= 'Tweets'
 
