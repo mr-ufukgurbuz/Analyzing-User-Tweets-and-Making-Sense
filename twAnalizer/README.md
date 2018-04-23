@@ -29,6 +29,8 @@ f. the most frequent 10 words:
 8  AACanli         34
 9  dünyaya         32
 
+![figure_1](https://user-images.githubusercontent.com/16938791/39147492-6c389bf6-4742-11e8-80a7-327ce221447c.png)
+
 g. the most frequent 50 words:
                   Word  Frequency
 0                    8        190
@@ -81,6 +83,8 @@ g. the most frequent 50 words:
 47              Sanayi         11
 48              Zeytin         11
 49                Dalı         11
+
+![figure_2](https://user-images.githubusercontent.com/16938791/39147501-73c00e22-4742-11e8-98c9-881d37489717.png)
 
 h. number of instances that are less than 5 characters: 1392 
 ```
