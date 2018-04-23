@@ -29,7 +29,7 @@ f. the most frequent 10 words:
 8  AACanli         34
 9  dünyaya         32
 
-![figure_1](https://user-images.githubusercontent.com/16938791/39147492-6c389bf6-4742-11e8-80a7-327ce221447c.png)
+![alt text](https://user-images.githubusercontent.com/16938791/39147492-6c389bf6-4742-11e8-80a7-327ce221447c.png "The Most Frequent 10 Words")
 
 g. the most frequent 50 words:
                   Word  Frequency
