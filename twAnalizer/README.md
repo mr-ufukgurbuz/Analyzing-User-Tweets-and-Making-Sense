@@ -91,13 +91,18 @@ h. number of instances that are less than 5 characters: 1392
 ----- (2) For each class label -----
 
 a. total number of instances:
- {'dateCount': 601, 'compCount': 1178, 'eventCount': 843, 'contactCount': 9, 'jobCount': 540, 'idCount': 54, 'ageCount': 0, 'placeCount': 538, 'trashCount': 0, 'nameCount': 592, 'addressCount': 40}
+ {'dateCount': 601, 'compCount': 1178, 'eventCount': 843, 'contactCount': 9, 'jobCount': 540, 'idCount': 54, 
+ 'ageCount': 0, 'placeCount': 538, 'trashCount': 0, 'nameCount': 592, 'addressCount': 40}
 
 b. average length of instances in characters:
- {'avgLengthOfContact': 3.1818181818181817, 'avgLengthOfName': 6.1952861952861955, 'avgLengthOfID': 8.321428571428571, 'avgLengthOfJob': 6.487084870848708, 'avgLengthOfAge': 0, 'avgLengthOfAddress': 5.857142857142857, 'avgLengthOfTrash': 0, 'avgLengthOfPlace': 6.644444444444445, 'avgLengthOfComp': 6.282203389830508, 'avgLengthOfEvent': 7.324260355029586, 'avgLengthOfDate': 2.4809286898839136}
+ {'avgLengthOfContact': 3.18181, 'avgLengthOfName': 6.19528, 'avgLengthOfID': 8.3214, 'avgLengthOfJob': 6.4870, 
+ 'avgLengthOfAge': 0, 'avgLengthOfAddress': 5.85714, 'avgLengthOfTrash': 0, 'avgLengthOfPlace': 6.6444, 
+ 'avgLengthOfComp': 6.2822, 'avgLengthOfEvent': 7.3242, 'avgLengthOfDate': 2.4809}
 
 c. std dev of length of instances in characters:
- {'stdDevOfDate': 1.8891764979539023, 'stdDevOfID': 3.057670788255441, 'stdDevOfAge': 0.0, 'stdDevOfComp': 2.7031578102087668, 'stdDevOfContact': 2.315952582337636, 'stdDevOfName': 2.460256365720957, 'stdDevOfTrash': 0.0, 'stdDevOfEvent': 3.3587179945934778, 'stdDevOfAddress': 2.514071894614233, 'stdDevOfPlace': 2.458461339602043, 'stdDevOfJob': 2.935350729939422}
+ {'stdDevOfDate': 1.889, 'stdDevOfID': 3.057, 'stdDevOfAge': 0.0, 'stdDevOfComp': 2.703, 'stdDevOfContact': 2.315, 
+ 'stdDevOfName': 2.460, 'stdDevOfTrash': 0.0, 'stdDevOfEvent': 3.358, 'stdDevOfAddress': 2.514, 'stdDevOfPlace': 2.458, 
+ 'stdDevOfJob': 2.935}
 
 f. the most frequent 10 words:
 
