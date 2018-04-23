@@ -665,17 +665,17 @@ g. the most frequent 50 words:
 
 h. number of instances that are less than 5 characters:
 
-Trash Count:	 0
-Event Count:	 146
-Name Count:		 86
-Address Count:	 7
-Date Count:		 571
-Comp Count:		 343
-Age Count:		 0
-Job Count:		 147
-Place Count:	 85
-Contact Count:	 7
-ID Count:		 0
+Trash Count:      0
+Event Count:      146
+Name Count:       86
+Address Count:    7
+Date Count:       571
+Comp Count:       343
+Age Count:        0
+Job Count:        147
+Place Count:      85
+Contact Count:    7
+ID Count:         0
 
 Process finished with exit code 0
 ```
