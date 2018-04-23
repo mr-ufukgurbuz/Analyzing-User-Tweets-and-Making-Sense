@@ -28,9 +28,9 @@ f. the most frequent 10 words:
 7     Prof         35
 8  AACanli         34
 9  dünyaya         32
-
+```
 ![alt text](https://user-images.githubusercontent.com/16938791/39147492-6c389bf6-4742-11e8-80a7-327ce221447c.png "The Most Frequent 10 Words")
-
+```
 g. the most frequent 50 words:
                   Word  Frequency
 0                    8        190
@@ -83,9 +83,9 @@ g. the most frequent 50 words:
 47              Sanayi         11
 48              Zeytin         11
 49                Dalı         11
-
-![figure_2](https://user-images.githubusercontent.com/16938791/39147501-73c00e22-4742-11e8-98c9-881d37489717.png)
-
+```
+![alt text](https://user-images.githubusercontent.com/16938791/39147501-73c00e22-4742-11e8-98c9-881d37489717.png "The Most Frequent 50 Words")
+```
 h. number of instances that are less than 5 characters: 1392 
 ```
 
@@ -97,17 +97,23 @@ h. number of instances that are less than 5 characters: 1392
 a. total number of instances:
  {'dateCount': 601, 'compCount': 1178, 'eventCount': 843, 'contactCount': 9, 'jobCount': 540, 'idCount': 54, 
  'ageCount': 0, 'placeCount': 538, 'trashCount': 0, 'nameCount': 592, 'addressCount': 40}
-
+```
+![figure_1](https://user-images.githubusercontent.com/16938791/39147915-96d7e794-4743-11e8-8b7c-83dab7f270dd.png)
+```
 b. average length of instances in characters:
  {'avgLengthOfContact': 3.18181, 'avgLengthOfName': 6.19528, 'avgLengthOfID': 8.3214, 'avgLengthOfJob': 6.4870, 
  'avgLengthOfAge': 0, 'avgLengthOfAddress': 5.85714, 'avgLengthOfTrash': 0, 'avgLengthOfPlace': 6.6444, 
  'avgLengthOfComp': 6.2822, 'avgLengthOfEvent': 7.3242, 'avgLengthOfDate': 2.4809}
-
+```
+![figure_2](https://user-images.githubusercontent.com/16938791/39147922-9b4011b2-4743-11e8-888b-af3c7543416f.png)
+```
 c. std dev of length of instances in characters:
  {'stdDevOfDate': 1.889, 'stdDevOfID': 3.057, 'stdDevOfAge': 0.0, 'stdDevOfComp': 2.703, 'stdDevOfContact': 2.315, 
  'stdDevOfName': 2.460, 'stdDevOfTrash': 0.0, 'stdDevOfEvent': 3.358, 'stdDevOfAddress': 2.514, 'stdDevOfPlace': 2.458, 
  'stdDevOfJob': 2.935}
-
+```
+![figure_3](https://user-images.githubusercontent.com/16938791/39147939-a44130e8-4743-11e8-9691-9c241ebeb355.png)
+```
 f. the most frequent 10 words:
 
 ------ Event ------
