@@ -7,7 +7,7 @@ import pymongo, os, _thread, time
 # "mLab" Remote Database URI
 DBPATH = os.environ['MONGODB_URI']
 db_name = 'data-science-database'
-collection_name= 'Tweets'
+collection_name= 'Tweets2'
 
 
 class MongodbClient:
