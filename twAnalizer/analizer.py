@@ -6,12 +6,12 @@ import pandas as pd
 import statistics
 from collections import Counter
 
-Document = pd.read_excel('document.xlsx')                       # Read 'document.xlsx' file
+Document = pd.read_excel('xlsx/document.xlsx')                       # Read 'document.xlsx' file
 _textList = Document["text"]
 textList = []
 textCharNumList = []
 
-Document_Token = pd.read_excel('documentToken2.xlsx')           # Read 'documentToken.xlsx' file
+Document_Token = pd.read_excel('xlsx/documentToken2.xlsx')           # Read 'documentToken.xlsx' file
 tokenTextList = Document_Token[["token_text", "c_name"]]
 
 tokenCharNumList = []
