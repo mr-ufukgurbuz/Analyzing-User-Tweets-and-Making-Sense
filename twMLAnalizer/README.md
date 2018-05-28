@@ -54,14 +54,14 @@ a. List of classification/regression algorithms applied to this dataset (NB, LR,
 ```
 a. Test-on-Training (use whole dataset for both training and testing):
 ```
-![9a_testontraining](https://user-images.githubusercontent.com/16938791/40611966-3d0030c4-6281-11e8-8e86-4f5a36115b0d.PNG)
+![9a_testontraining](https://user-images.githubusercontent.com/16938791/40630840-f8a5fd4c-62de-11e8-800a-75efe7f48734.PNG)
 
 ```
 b. Percentage Split, %80 training, %20 testing:
 ```
-![9b_percentagesplit](https://user-images.githubusercontent.com/16938791/40611998-670c9876-6281-11e8-9f43-8adf3173f232.PNG)
+![9b_percentagesplit](https://user-images.githubusercontent.com/16938791/40630859-1bab7dbc-62df-11e8-84b3-735c3e213b36.PNG)
 
 ```
 c. 10-fold Cross Validation (avg of 10 trials):
 ```
-![9c_crossvalidation](https://user-images.githubusercontent.com/16938791/40612020-7ce69b10-6281-11e8-8d51-2edf33434eeb.PNG)
+![9c_crossvalidation](https://user-images.githubusercontent.com/16938791/40630871-30b7902e-62df-11e8-8d2b-c609ddd26f9f.PNG)
