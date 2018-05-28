@@ -18,7 +18,7 @@ labels = 'Address', 'Company', 'Contact', 'Date', 'Event/Activity', 'ID', 'Job',
 sizes = [48, 1256, 9, 620, 869, 98, 617, 709, 646]
 DrawPieChart(labels, sizes)
 
-featureData = pd.read_csv('FeatureOutput.csv', engine='python')
+featureData = pd.read_csv('FeatureOutputCropped.csv', engine='python')
 featureValues = featureData.get_values()[:,1:16]
 featureNames = ['StrtCpt', 'AllCpt', 'CptRatio', 'Length', 'VwlRatio', 'NoVwl', 'NoCns',
                 'NoDigit', 'DigitRatio', 'NoNonAlpha', 'NonAlphaRatio', 'AllCns', 'Hashtag',

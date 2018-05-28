@@ -44,9 +44,10 @@ def FindCrossValidation(model, X, Y, foldCount):
     return averageAccuracy/foldCount, averagePrecision/foldCount, averageRecall/foldCount, averageF1/foldCount
 
 
-featureData = pd.read_csv('FeatureOutput.csv', engine='python')
-X = featureData.get_values()[:,1:16]
-Y = featureData.get_values()[:,16]
+featureData = pd.read_csv('FeatureOutputCropped.csv', engine='python')
+featureData = featureData.fillna(featureData.mean())
+X = featureData.get_values()[:,1:46]
+Y = featureData.get_values()[:,46]
 X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.20)
 
 # Train and test Gaussian Naive Bayes model
