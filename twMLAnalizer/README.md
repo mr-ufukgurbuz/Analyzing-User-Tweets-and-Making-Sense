@@ -35,14 +35,7 @@ a. Attribute Statistics (table columns: #, name OR abbrevation, missing %, min, 
 ```
 ![featurestats](https://user-images.githubusercontent.com/16938791/40611125-c7729e12-627d-11e8-9155-00b1a126c15a.PNG)
 
-## ----- (7) K-Means Clustering Results -----
-
-```
-a. Explanation of k-means clustering results of our data:
-  //////// YAZILACAK ////////
-```
-
-## ----- (8) K-Means Clustering Results -----
+## ----- (8) Machine Learning Algorithms -----
 
 ```
 a. List of classification/regression algorithms applied to this dataset (NB, LR, SVM, k-NN):
